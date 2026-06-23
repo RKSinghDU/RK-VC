@@ -1,25 +1,901 @@
-<!DOCTYPE html><html lang="en" style="background-color: rgb(115, 12, 147);"><head><meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="robots" content="noindex, nofollow"> <meta name="author" content="EnBizCard - An Open-Source Digital Business Card Generator"> <meta name="url" content="https://enbizcard.vishnuraghav.com/"> <meta name="designer" content="Vishnu Raghav"> <meta property="og:title" content="R K Singh's Digital Business Card"> <meta property="twitter:title" content="R K Singh's Digital Business Card"> <script>
-          "http"==window.location.href.substr(0,4)&&"/"!=window.location.href.slice(-1)&&window.location.replace(window.location.href+"/");
-        </script> <!----> <title>R K Singh's Digital Business Card</title> <style>
-          #body{ font-family: sans-serif; } input[type='range']::-moz-range-track { background: none; } input[type='range']::-moz-range-thumb { -moz-appearance: none; width: 1.5rem; height: 1.5rem; border-radius: 100%; border: none; background: #7A7A7A; z-index: 3; cursor: pointer; } input[type='range']::-webkit-slider-thumb { -webkit-appearance: none; width: 1.5rem; height: 1.5rem; border-radius: 100%; border: none; background: #7A7A7A; z-index: 3; cursor: pointer; } .closeColor{ filter:invert(1)  } .topAction { } .iconColor{ color:#eee;  } .cardColor{ color:#222 !important } .textColor{ color:#222 !important } .seekbarColor{  background:#7A7A7A80 !important }
-        </style> <!----> <!----><link rel="stylesheet" href="./style.min.css"></head> <body id="body"><div id="modal" style="background-color: rgb(221, 221, 221); visibility: hidden; top: 2rem; opacity: 0;"><a id="close" class="closeColor"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><path style="fill:none" d="M0 0h24v24H0z"></path><path d="M18 6 6 18M6 6l12 12" style="fill:none;fill-rule:nonzero;stroke:#fff;stroke-width:2px"></path></svg></div></a> <div id="keyView"><p class="textColor">
-              Use my public key to send me encrypted messages
-            </p> <a download="" target="_blank" id="dlKey" rel="noreferrer" tabindex="-1" href="./R K Singh's public key.asc" style="background-color: rgb(122, 122, 122);"><div class="icon iconColor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><path style="fill:none" d="M0 0h24v24H0z"></path><path d="M21 15v4c0 1.097-.903 2-2 2H5c-1.097 0-2-.903-2-2v-4m4-5 5 5 5-5m-5 5V3" style="fill:none;fill-rule:nonzero;stroke:#fff;stroke-width:2px"></path></svg></div> <span class="iconColor">Download Key</span></a></div> <div id="copyView"><p class="textColor">
-              Copy and send the URL to share my Business Card
-            </p> <button id="copyURL" style="background-color: rgb(122, 122, 122);"><div class="icon iconColor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><path style="fill:none" d="M0 0h24v24H0z"></path><path d="M22 11a2 2 0 0 0-2-2h-9a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-9Z" style="fill:none;stroke:#fff;stroke-width:2px"></path><path d="M5 15H4c-1.097 0-2-.903-2-2V4c0-1.097.903-2 2-2h9c1.097 0 2 .903 2 2v1" style="fill:none;fill-rule:nonzero;stroke:#fff;stroke-width:2px"></path></svg></div> <span class="iconColor">Copy URL</span></button></div> <div id="qrView" class="textColor"><div id="qr"></div> <h3>Scan the QR Code</h3> <p>to view my Business Card on another device</p></div></div> <header><div id="topActions" style="display: none;"><div><a id="share"><div class="icon topAction"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:2"><g><path style="fill:none" d="M0 0h24v24H0z"></path><clipPath id="a"><path d="M0 0h24v24H0z"></path></clipPath><g clip-path="url(#a)"><circle cx="17" cy="5" r="3" style="fill:none;stroke:#fff;stroke-width:2px"></circle><circle cx="5" cy="12" r="3" style="fill:none;stroke:#fff;stroke-width:2px"></circle><circle cx="17" cy="19" r="3" style="fill:none;stroke:#fff;stroke-width:2px"></circle><path d="m7.59 13.51 6.83 3.98m-.01-10.98-6.82 3.98" style="fill:none;stroke:#fff;stroke-width:2px"></path></g></g></svg></div></a> <a id="showQR"><div class="icon topAction"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><path style="fill:none" d="M0 0h24v24H0z"></path><path d="M4 4h4v4H4V4Zm0 12h4v4H4v-4ZM16 4h4v4h-4V4Z" style="fill:none;stroke:#fff;stroke-width:2px"></path><path d="M12 4v14c0 1.097.903 2 2 2h4c1.097 0 2-.903 2-2v-4c0-1.097-.903-2-2-2H4" style="fill:none;stroke:#fff;stroke-width:2px;stroke-linejoin:miter"></path><path style="fill:#fff" d="M15 15h2v2h-2z"></path></svg></div></a></div> <!----></div> <div class="headerImgC"><!----> <img id="logo" src="./logo.png" alt="Logo" style="margin: 3rem 0px 8rem;"></div></header> <main style="background-color: rgb(221, 221, 221); margin-top: 0px;"><img id="profilePhoto" src="./photo.png" alt="Photo"> <div id="info" class="textColor"><p class="name">
-              R K Singh
-            </p> <!----> <p class="jobtitle">
-              Professor of Organizational Behavior
-            </p> <p class="bizname">
-              University of Delhi
-            </p> <p class="bizaddr">
-              Faculty of Commerce and Business<br>Delhi School of Economics<br>University of Delhi<br>Delhi - 110007
-            </p></div> <!----> <a id="cta" rel="noreferrer" download="" target="_blank" aria-label="Save Contact" href="rksingh.vcf" style="background-color: rgb(122, 122, 122);"><div class="icon iconColor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><path style="fill:none" d="M0 0h24v24H0z"></path><circle cx="8.5" cy="7" r="4" style="fill:none;stroke:#fff;stroke-width:2.29px" transform="matrix(.875 0 0 .875 4.563 -.625)"></circle><path d="M86 181c0-3.863 3.137-7 7-7s7 3.137 7 7" style="fill:none;stroke:#fff;stroke-width:2px" transform="translate(-81 -163)"></path><path d="M104 168v6m3-3-3 3-3-3" style="fill:none;fill-rule:nonzero;stroke:#fff;stroke-width:2px" transform="translate(-92 -152)"></path></svg></div> <p class="iconColor">Save Contact</p></a> <div class="actions"><div class="actionsC"><div class="actionBtn"><a href="tel:+91 9910970870" target="_blank" rel="noopener noreferrer" aria-label="Mobile" style="background-color: rgb(122, 122, 122);"><div class="icon iconColor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><path style="fill:none" d="M0 0h24v24H0z"></path><path d="M11.5 22a.952.952 0 0 1-1.052.945c-4.358-.544-7.851-4.338-8.379-8.39a.938.938 0 0 1 .936-1.046c.399-.009.847-.009 1.202-.009.388 0 .738.237.882.597l.478 1.196a.95.95 0 0 1-.21 1.025l-.107.107a.951.951 0 0 0-.181 1.091c.495.825 1.59 1.92 2.425 2.396a.927.927 0 0 0 1.066-.177c.05-.02.086-.056.122-.092a.95.95 0 0 1 1.025-.21l1.196.478c.36.144.597.494.597.882V22Z" style="fill:none;stroke:#fff;stroke-width:.95px" transform="translate(-2.21 -26.421) scale(2.10526)"></path></svg></div></a> <p class="textColor">
-                  Mobile
-                </p></div></div><div class="actionsC"><div class="actionBtn"><a href="mailto:rksingh@commerce.du.ac.in" target="_blank" rel="noopener noreferrer" aria-label="Email" style="background-color: rgb(122, 122, 122);"><div class="icon iconColor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><path style="fill:none" d="M0 0h24v24H0z"></path><path d="M22 33.75c0-.966-.896-1.75-2-1.75H4c-1.104 0-2 .784-2 1.75v10.5c0 .966.896 1.75 2 1.75h16c1.104 0 2-.784 2-1.75v-10.5Z" style="fill:none;stroke:#fff;stroke-width:1.86px" transform="matrix(1 0 0 1.14286 0 -32.571)"></path><path d="m18 7.042-6 2.625-6-2.625" style="fill:none;fill-rule:nonzero;stroke:#fff;stroke-width:1.86px" transform="matrix(1 0 0 1.14286 0 1.952)"></path></svg></div></a> <p class="textColor">
-                  Email
-                </p></div></div><div class="actionsC"><div class="actionBtn"><a target="_blank" rel="noopener noreferrer" aria-label="Website" href="https://smrth.in/pN" style="background-color: rgb(122, 122, 122);"><div class="icon iconColor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><g><path style="fill:none" d="M0 0h24v24H0z"></path><clipPath id="a"><path d="M0 0h24v24H0z"></path></clipPath><g clip-path="url(#a)"><circle cx="12" cy="12" r="10" style="fill:none;stroke:#fff;stroke-width:2px"></circle><ellipse cx="40" cy="40" rx="4" ry="10" style="fill:none;stroke:#fff;stroke-width:2px;stroke-linejoin:miter" transform="translate(-28 -28)"></ellipse><path d="M40 50s-2-4-2-10 2-10 2-10" style="fill:none;stroke:#fff;stroke-width:2px" transform="rotate(-90 11.5 39.5)"></path></g></g></svg></div></a> <p class="textColor">
-                  Website
-                </p></div></div><div class="actionsC"><div class="actionBtn"><a target="_blank" rel="noopener noreferrer" aria-label="Location" href="https://maps.app.goo.gl/KNjo1kizqS2ciN9d8" style="background-color: rgb(122, 122, 122);"><div class="icon iconColor"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2"><g><path style="fill:none" d="M0 0h24v24H0z"></path><circle cx="12" cy="10" r="3" style="fill:none;stroke:#fff;stroke-width:2px"></circle><path d="M40 29c4.967 0 9 4.033 9 9 0 7-9 13-9 13s-9-6.033-9-13c0-4.967 4.033-9 9-9Z" style="fill:none;stroke:#fff;stroke-width:2px" transform="translate(-28 -28)"></path></g></svg></div></a> <p class="textColor">
-                  Location
-                </p></div></div></div> <div class="actions secondary"><div class="actionsC"><div class="actionBtn secBtn"><a href="https://www.youtube.com/@rkvisen251" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="background: rgb(255, 0, 0);"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24"><path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z"></path></svg></div></a></div></div></div> </main> <!----><script src="./qrcode.min.js"></script><script>let m=document.getElementById("modal"),c=document.getElementById("close"),ki=document.getElementById("keyView"),cv=document.getElementById("copyView"),curl=document.getElementById("copyURL"),qrv=document.getElementById("qrView"),qr=document.getElementById("qr"),s=document.getElementById("share"),sqr=document.getElementById("showQR"),sk=document.getElementById("showKey");function tC(e){"2rem"==e.style.top?(e.style.visibility="visible",e.style.top="0px",e.style.opacity=1):(e.style.top="2rem",e.style.opacity=0,setTimeout(()=>{e.style.visibility="hidden"},200))}function dN(e){e.style.display="none"}window.addEventListener("load",()=>{document.querySelector("#topActions").style.display="flex",qr.innerHTML=new QRCode({content:window.location.href,container:"svg-viewbox",join:!0,ecl:"L",padding:0}).svg()}),navigator.canShare?s.addEventListener("click",()=>{navigator.share({title:document.title,text:"You can view my Digital Business Card here:",url:window.location.href})}):s.addEventListener("click",()=>{tC(m),cv.style.display="flex",dN(qrv),ki&&dN(ki)}),sqr.addEventListener("click",()=>{tC(m),qrv.style.display="block",dN(cv),ki&&dN(ki)}),sk&&sk.addEventListener("click",()=>{tC(m),ki&&(ki.style.display="flex"),dN(cv),dN(qrv)}),c.addEventListener("click",()=>tC(m)),curl.addEventListener("click",async()=>{let e=curl.querySelectorAll(".iconColor")[1];await navigator.clipboard.writeText(window.location.href).then(t=>{e.innerText="Copied",setTimeout(()=>{e.innerText="Copy URL"},1e3)})});</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prof. R. K. Singh — Professor, Faculty of Commerce and Business, Delhi School of Economics, University of Delhi. Specialising in Organisational Behaviour, Performance Management, and Digital HR Systems." />
+  <meta property="og:title" content="Prof. R. K. Singh | Delhi School of Economics" />
+  <meta property="og:description" content="Professor, Faculty of Commerce and Business, Delhi School of Economics, University of Delhi." />
+  <meta property="og:type" content="profile" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Prof. R. K. Singh | Delhi School of Economics" />
+  <title>Prof. R. K. Singh | Delhi School of Economics, University of Delhi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- QR Code library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    /* ========================================
+       TOKENS
+    ======================================== */
+    :root {
+      --navy:       #1A2744;
+      --navy-light: #243460;
+      --gold:       #C8A96E;
+      --gold-light: #DFC08A;
+      --ivory:      #F7F3EC;
+      --ivory-dark: #EDE8DF;
+      --crimson:    #8B2635;
+      --text-dark:  #1A1A2E;
+      --text-mid:   #4A5568;
+      --text-light: #718096;
+      --white:      #FFFFFF;
+      --shadow-sm:  0 2px 8px rgba(26,39,68,0.08);
+      --shadow-md:  0 8px 32px rgba(26,39,68,0.12);
+      --shadow-lg:  0 16px 48px rgba(26,39,68,0.18);
+      --radius-sm:  6px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--ivory);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(200,169,110,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(26,39,68,0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 0 3rem;
+    }
+
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 2.5rem 2rem 0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2px solid rgba(200,169,110,0.2);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,169,110,0.12);
+      pointer-events: none;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .institution-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-fallback {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(200,169,110,0.4);
+      background: rgba(200,169,110,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-fallback svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--gold);
+    }
+
+    .institution-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(247,243,236,0.55);
+      line-height: 1.3;
+      max-width: 160px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition);
+      color: rgba(247,243,236,0.75);
+    }
+
+    .icon-btn:hover, .icon-btn:focus-visible {
+      background: rgba(200,169,110,0.2);
+      border-color: rgba(200,169,110,0.4);
+      color: var(--gold);
+      outline: none;
+    }
+
+    .icon-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .hero-identity {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+    }
+
+    .hero-info {
+      flex: 1;
+      padding-bottom: 1.75rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.75rem, 6vw, 2.25rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .gold-rule {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin-bottom: 0.75rem;
+      border-radius: 2px;
+    }
+
+    .hero-title {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: rgba(247,243,236,0.75);
+      line-height: 1.5;
+    }
+
+    .hero-title strong {
+      font-weight: 600;
+      color: rgba(247,243,236,0.92);
+    }
+
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .hero-photo {
+      width: 110px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      display: block;
+      border: 2px solid rgba(200,169,110,0.35);
+      border-bottom: none;
+      background: var(--navy-light);
+    }
+
+    .photo-placeholder {
+      width: 110px;
+      height: 130px;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      background: linear-gradient(160deg, var(--navy-light), #2d4a7a);
+      border: 2px solid rgba(200,169,110,0.35);
+      border-bottom: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .photo-placeholder svg {
+      width: 40px;
+      height: 40px;
+      color: rgba(200,169,110,0.5);
+    }
+
+    .photo-placeholder span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(200,169,110,0.6);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -8px;
+      width: 8px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      opacity: 0.4;
+      border-radius: 2px 0 0 0;
+    }
+
+    .cta-row {
+      background: var(--white);
+      padding: 0.75rem 1.75rem;
+    }
+
+    .btn-save {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      padding: 0.9rem 1.5rem;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-save:hover, .btn-save:focus-visible {
+      background: var(--navy-light);
+      box-shadow: 0 6px 20px rgba(26,39,68,0.3);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .btn-save:active { transform: translateY(0); }
+
+    .btn-save svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .section {
+      padding: 0 1.75rem 1.5rem;
+      background: var(--white);
+    }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.9rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--ivory-dark);
+    }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+    }
+
+    .action-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .action-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .action-item:hover .action-icon,
+    .action-item:focus-visible .action-icon {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .action-item:focus-visible { outline: none; }
+
+    .action-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .action-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .ai-phone    { background: #E8F4FD; color: #0077B6; }
+    .ai-email    { background: #FFF3E0; color: #E65100; }
+    .ai-web      { background: #E8F5E9; color: #2E7D32; }
+    .ai-location { background: #FCE4EC; color: #C2185B; }
+
+    .spec-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--ivory);
+      border: 1px solid var(--ivory-dark);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .chip:hover {
+      background: rgba(26,39,68,0.06);
+      border-color: rgba(26,39,68,0.15);
+      color: var(--navy);
+    }
+
+    .chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .address-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .address-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .address-icon svg {
+      width: 15px;
+      height: 15px;
+      color: var(--navy);
+    }
+
+    .address-text {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: var(--text-mid);
+    }
+
+    .address-text strong {
+      display: block;
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 0.82rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .socials-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+      color: var(--white);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .social-btn:hover, .social-btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      opacity: 0.9;
+      outline: none;
+    }
+
+    .social-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .sb-linkedin { background: #0077B5; }
+    .sb-youtube  { background: #FF0000; }
+    .sb-scholar  { background: #4285F4; }
+
+    .qr-section {
+      background: var(--white);
+      padding: 0 1.75rem 1.75rem;
+    }
+
+    .qr-inner {
+      background: var(--ivory);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    #qrcode { flex-shrink: 0; }
+
+    #qrcode img, #qrcode canvas { border-radius: var(--radius-sm); }
+
+    .qr-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .qr-text p {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .btn-copy-url {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+      padding: 0.45rem 0.85rem;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-copy-url:hover {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-copy-url svg { width: 12px; height: 12px; }
+
+    .divider {
+      height: 1px;
+      background: var(--ivory-dark);
+      margin: 0 1.75rem;
+    }
+
+    .card-footer {
+      background: var(--white);
+      padding: 1rem 1.75rem 0;
+      text-align: center;
+    }
+
+    .card-footer p {
+      font-size: 0.62rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .card-footer a {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      z-index: 100;
+      white-space: nowrap;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (min-width: 560px) {
+      body { padding: 3rem 1rem; background: var(--ivory); }
+      .page-wrap { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+      .hero { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrap">
+
+    <header class="hero">
+      <div class="hero-top">
+        <div class="institution-badge">
+          <div class="logo-fallback" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+            </svg>
+          </div>
+          <span class="institution-name">Delhi School of Economics, University of Delhi</span>
+        </div>
+        <div class="hero-actions">
+          <button class="icon-btn" id="shareBtn" aria-label="Share this card" title="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+          </button>
+          <button class="icon-btn" id="qrBtn" aria-label="Show QR code" title="QR Code">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <path d="M14 14h2v2h-2zm4 0h3v3h-3zm0 4h-2v3h5v-3h-1"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-identity">
+        <div class="hero-info">
+          <p class="hero-eyebrow">Faculty Profile</p>
+          <h1 class="hero-name">Prof. R. K. Singh</h1>
+          <span class="gold-rule"></span>
+          <p class="hero-title">
+            <strong>Professor</strong><br>
+            Faculty of Commerce &amp; Business<br>
+            Delhi School of Economics
+          </p>
+        </div>
+        <div class="hero-photo-wrap">
+          <img
+            src="./photo.png"
+            alt="Prof. R. K. Singh"
+            class="hero-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="photo-placeholder" style="display:none;" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>RKS</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="cta-row">
+      <a class="btn-save" href="./rksingh.vcf" download aria-label="Save contact to phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+          <polyline points="17,21 17,13 7,13 7,21"/>
+          <polyline points="7,3 7,8 15,8"/>
+        </svg>
+        Save Contact
+      </a>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Contact</p>
+      <div class="actions-grid">
+        <a href="tel:+919910970870" class="action-item" aria-label="Call mobile">
+          <div class="action-icon ai-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.17 6.17l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <span class="action-label">Mobile</span>
+        </a>
+        <a href="mailto:rksingh@commerce.du.ac.in" class="action-item" aria-label="Send email">
+          <div class="action-icon ai-email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <span class="action-label">Email</span>
+        </a>
+        <a href="https://commerce.du.ac.in" target="_blank" rel="noopener noreferrer" class="action-item" aria-label="Visit department website">
+          <div class="action-icon ai-web">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <span class="action-label">Website</span>
+        </a>
+        <a href="https://maps.app.goo.gl/KNjo1kizqS2ciN9d8" target="_blank" rel="noopener noreferrer" class="action-item" aria-label="View location on map">
+          <div class="action-icon ai-location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <span class="action-label">Location</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-label">Research &amp; Teaching</p>
+      <div class="spec-chips">
+        <span class="chip"><span class="chip-dot"></span>Organisational Behaviour</span>
+        <span class="chip"><span class="chip-dot"></span>Performance Management</span>
+        <span class="chip"><span class="chip-dot"></span>Employee Engagement</span>
+        <span class="chip"><span class="chip-dot"></span>Digital HR Systems</span>
+        <span class="chip"><span class="chip-dot"></span>Organisational Change</span>
+        <span class="chip"><span class="chip-dot"></span>Research Methodology</span>
+        <span class="chip"><span class="chip-dot"></span>Indian Management Thought</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-label">Office Address</p>
+      <a href="https://maps.app.goo.gl/KNjo1kizqS2ciN9d8" target="_blank" rel="noopener noreferrer" class="address-block" style="text-decoration:none;">
+        <div class="address-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9,22 9,12 15,12 15,22"/>
+          </svg>
+        </div>
+        <address class="address-text" style="font-style:normal;">
+          <strong>Faculty of Commerce and Business</strong>
+          Delhi School of Economics<br>
+          University of Delhi<br>
+          Delhi — 110 007
+        </address>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-label">Online Profiles</p>
+      <div class="socials-row">
+        <a href="https://www.linkedin.com/in/rk-singh-du" target="_blank" rel="noopener noreferrer" class="social-btn sb-linkedin" aria-label="LinkedIn Profile">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://www.youtube.com/@rkvisen251" target="_blank" rel="noopener noreferrer" class="social-btn sb-youtube" aria-label="YouTube Channel">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/>
+          </svg>
+          YouTube
+        </a>
+        <a href="https://scholar.google.com/citations?user=RKSinghDU" target="_blank" rel="noopener noreferrer" class="social-btn sb-scholar" aria-label="Google Scholar">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269z"/>
+            <path d="M12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+          </svg>
+          Scholar
+        </a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="qr-section" id="qrSection">
+      <p class="section-label" style="padding-top:1.5rem; margin-bottom:0.9rem; padding-left:0; padding-right:0; border-top: 1px solid var(--ivory-dark);">Share This Card</p>
+      <div class="qr-inner">
+        <div id="qrcode"></div>
+        <div class="qr-text">
+          <h3>Scan to open on another device</h3>
+          <p>Point your phone camera at the QR code to view this card instantly.</p>
+          <button class="btn-copy-url" id="copyUrlBtn" aria-label="Copy link to this card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="card-footer">
+      <p>
+        Prof. R. K. Singh &nbsp;·&nbsp;
+        <a href="mailto:rksingh@commerce.du.ac.in">rksingh@commerce.du.ac.in</a>
+        &nbsp;·&nbsp; University of Delhi
+      </p>
+    </footer>
+
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    const url = window.location.href;
+    try {
+      new QRCode(document.getElementById('qrcode'), {
+        text: url,
+        width: 80,
+        height: 80,
+        colorDark: '#1A2744',
+        colorLight: '#F7F3EC',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    } catch(e) {
+      document.getElementById('qrcode').innerHTML =
+        '<div style="width:80px;height:80px;border-radius:6px;background:#EDE8DF;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#718096;text-align:center;padding:0.5rem;">QR unavailable</div>';
+    }
+
+    document.getElementById('copyUrlBtn').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        showToast('\u2713  Link copied to clipboard');
+      } catch {
+        showToast('Copy: ' + url);
+      }
+    });
+
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Prof. R. K. Singh | Delhi School of Economics',
+            text: 'Professor, Faculty of Commerce & Business, University of Delhi',
+            url: url
+          });
+        } catch (e) {}
+      } else {
+        try {
+          await navigator.clipboard.writeText(url);
+          showToast('\u2713  Link copied to clipboard');
+        } catch {
+          showToast('Share: ' + url);
+        }
+      }
+    });
+
+    document.getElementById('qrBtn').addEventListener('click', () => {
+      document.getElementById('qrSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+
+</body>
+</html>

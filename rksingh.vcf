@@ -1,24 +1,15 @@
 BEGIN:VCARD
 VERSION:3.0
-N:Singh;R K;;;
-FN:R K Singh
-ORG:University of Delhi
-ADR;TYPE=WORK:Faculty of Commerce and Business
-Delhi School of Economics
-University of Delhi
-Delhi - 110007
-TITLE:Professor of Organizational Behavior
-TEL;TYPE=CELL:+919910970870
-TEL;TYPE=WORK:
-TEL;TYPE=HOME:
-TEL;TYPE=MSG:
-EMAIL;TYPE=WORK:rksingh@commerce.du.ac.in
-URL;TYPE=Digital Business Card:
-URL:https://smrth.in/pN
-URL;TYPE=Website:https://smrth.in/pN
+N:Singh;Rajendra Kumar;;;Prof.
+FN:Prof. R. K. Singh
+TITLE:Professor of Organisational Behaviour & Human Resource Management
+ORG:University of Delhi;Faculty of Commerce and Business;Delhi School of Economics
+ADR;TYPE=WORK:;;Faculty of Commerce and Business\, Delhi School of Economics;Delhi;;110007;India
+TEL;TYPE=CELL,PREF:+919910970870
+EMAIL;TYPE=WORK,PREF:rksingh@commerce.du.ac.in
+URL;TYPE=Department:https://commerce.du.ac.in
 URL;TYPE=Location:https://maps.app.goo.gl/KNjo1kizqS2ciN9d8
-URL;TYPE=YouTube:https://youtube.com/www.youtube.com/@rkvisen251
-KEY;TYPE=PGP;ENCODING=b:
-NOTE:
-UID:EnBizCard-100207472
+URL;TYPE=YouTube:https://www.youtube.com/@rkvisen251
+NOTE:Professor\, Faculty of Commerce and Business\, Delhi School of Economics\, University of Delhi. Specialisations: Organisational Behaviour\, Performance Management\, Employee Engagement\, Digital HR Systems\, Research Methodology.
+UID:rksingh-dse-du-2026
 END:VCARD
