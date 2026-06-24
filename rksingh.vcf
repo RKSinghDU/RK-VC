@@ -1,15 +1,15 @@
 BEGIN:VCARD
 VERSION:3.0
-N:Singh;Rajendra Kumar;;;Prof.
-FN:Prof. R. K. Singh
+N:Singh;Reetesh Kumar;;;Prof.
+FN:Prof. Reetesh Kumar Singh
 TITLE:Professor of Organisational Behaviour & Human Resource Management
 ORG:University of Delhi;Faculty of Commerce and Business;Delhi School of Economics
 ADR;TYPE=WORK:;;Faculty of Commerce and Business\, Delhi School of Economics;Delhi;;110007;India
 TEL;TYPE=CELL,PREF:+919910970870
 EMAIL;TYPE=WORK,PREF:rksingh@commerce.du.ac.in
-URL;TYPE=Department:https://commerce.du.ac.in
+URL;TYPE=Portfolio:https://rksingh.tech
 URL;TYPE=Location:https://maps.app.goo.gl/KNjo1kizqS2ciN9d8
-URL;TYPE=YouTube:https://www.youtube.com/@rkvisen251
-NOTE:Professor\, Faculty of Commerce and Business\, Delhi School of Economics\, University of Delhi. Specialisations: Organisational Behaviour\, Performance Management\, Employee Engagement\, Digital HR Systems\, Research Methodology.
+URL;TYPE=YouTube:https://youtube.com/@rksinghdu
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/dr-r-k-singh-b4b4641b
 UID:rksingh-dse-du-2026
 END:VCARD
