@@ -44,6 +44,9 @@
       --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* ========================================
+       RESET & BASE
+    ======================================== */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -73,6 +76,9 @@
       display: block;
     }
 
+    /* ========================================
+       BACKGROUND TEXTURE
+    ======================================== */
     body::before {
       content: '';
       position: fixed;
@@ -84,6 +90,9 @@
       z-index: 0;
     }
 
+    /* ========================================
+       LAYOUT WRAPPER
+    ======================================== */
     .page-wrap {
       position: relative;
       z-index: 1;
@@ -92,6 +101,9 @@
       padding: 0 0 3rem;
     }
 
+    /* ========================================
+       HERO / HEADER
+    ======================================== */
     .hero {
       background: var(--navy);
       position: relative;
@@ -99,6 +111,7 @@
       padding: 2.5rem 2rem 0;
     }
 
+    /* Decorative gold arc */
     .hero::before {
       content: '';
       position: absolute;
@@ -123,6 +136,7 @@
       pointer-events: none;
     }
 
+    /* Top utility bar */
     .hero-top {
       display: flex;
       align-items: center;
@@ -136,6 +150,16 @@
       gap: 0.5rem;
     }
 
+    .institution-badge img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(200,169,110,0.4);
+      object-fit: cover;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Fallback logo placeholder */
     .logo-fallback {
       width: 36px;
       height: 36px;
@@ -196,6 +220,7 @@
       height: 16px;
     }
 
+    /* Profile identity */
     .hero-identity {
       display: flex;
       align-items: flex-end;
@@ -225,6 +250,7 @@
       margin-bottom: 0.6rem;
     }
 
+    /* Gold underline rule — the signature element */
     .gold-rule {
       display: block;
       width: 48px;
@@ -246,6 +272,7 @@
       color: rgba(247,243,236,0.92);
     }
 
+    /* Photo */
     .hero-photo-wrap {
       flex-shrink: 0;
       position: relative;
@@ -262,6 +289,7 @@
       background: var(--navy-light);
     }
 
+    /* Photo fallback */
     .photo-placeholder {
       width: 110px;
       height: 130px;
@@ -290,6 +318,7 @@
       letter-spacing: 0.05em;
     }
 
+    /* Gold corner accent on photo */
     .hero-photo-wrap::before {
       content: '';
       position: absolute;
@@ -302,6 +331,20 @@
       border-radius: 2px 0 0 0;
     }
 
+    /* ========================================
+       MAIN CARD BODY
+    ======================================== */
+    .card-body {
+      background: var(--white);
+      margin: 0;
+      padding: 1.75rem 1.75rem 0.5rem;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    /* ========================================
+       SAVE CONTACT CTA
+    ======================================== */
     .cta-row {
       background: var(--white);
       padding: 0.75rem 1.75rem;
@@ -332,7 +375,9 @@
       outline: none;
     }
 
-    .btn-save:active { transform: translateY(0); }
+    .btn-save:active {
+      transform: translateY(0);
+    }
 
     .btn-save svg {
       width: 17px;
@@ -340,6 +385,9 @@
       flex-shrink: 0;
     }
 
+    /* ========================================
+       CONTACT ACTIONS GRID
+    ======================================== */
     .section {
       padding: 0 1.75rem 1.5rem;
       background: var(--white);
@@ -379,6 +427,7 @@
       align-items: center;
       justify-content: center;
       transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
     }
 
     .action-item:hover .action-icon,
@@ -387,7 +436,9 @@
       box-shadow: var(--shadow-md);
     }
 
-    .action-item:focus-visible { outline: none; }
+    .action-item:focus-visible {
+      outline: none;
+    }
 
     .action-icon svg {
       width: 22px;
@@ -402,11 +453,15 @@
       line-height: 1.2;
     }
 
+    /* Individual icon colours */
     .ai-phone    { background: #E8F4FD; color: #0077B6; }
     .ai-email    { background: #FFF3E0; color: #E65100; }
     .ai-web      { background: #E8F5E9; color: #2E7D32; }
     .ai-location { background: #FCE4EC; color: #C2185B; }
 
+    /* ========================================
+       SPECIALISATIONS
+    ======================================== */
     .spec-chips {
       display: flex;
       flex-wrap: wrap;
@@ -441,6 +496,9 @@
       flex-shrink: 0;
     }
 
+    /* ========================================
+       ADDRESS BLOCK
+    ======================================== */
     .address-block {
       display: flex;
       align-items: flex-start;
@@ -479,6 +537,9 @@
       margin-bottom: 0.1rem;
     }
 
+    /* ========================================
+       SOCIAL LINKS
+    ======================================== */
     .socials-row {
       display: flex;
       gap: 0.6rem;
@@ -513,10 +574,14 @@
       flex-shrink: 0;
     }
 
-    .sb-linkedin { background: #0077B5; }
-    .sb-youtube  { background: #FF0000; }
-    .sb-scholar  { background: #4285F4; }
+    .sb-linkedin  { background: #0077B5; }
+    .sb-youtube   { background: #FF0000; }
+    .sb-scholar   { background: #4285F4; }
+    .sb-orcid     { background: #A6CE39; color: #1A1A1A; }
 
+    /* ========================================
+       QR PANEL
+    ======================================== */
     .qr-section {
       background: var(--white);
       padding: 0 1.75rem 1.75rem;
@@ -531,9 +596,14 @@
       gap: 1.25rem;
     }
 
-    #qrcode { flex-shrink: 0; }
+    #qrcode {
+      flex-shrink: 0;
+    }
 
-    #qrcode img, #qrcode canvas { border-radius: var(--radius-sm); }
+    #qrcode img,
+    #qrcode canvas {
+      border-radius: var(--radius-sm);
+    }
 
     .qr-text h3 {
       font-family: 'Playfair Display', serif;
@@ -571,14 +641,23 @@
       transform: translateY(-1px);
     }
 
-    .btn-copy-url svg { width: 12px; height: 12px; }
+    .btn-copy-url svg {
+      width: 12px;
+      height: 12px;
+    }
 
+    /* ========================================
+       DIVIDER
+    ======================================== */
     .divider {
       height: 1px;
       background: var(--ivory-dark);
       margin: 0 1.75rem;
     }
 
+    /* ========================================
+       FOOTER
+    ======================================== */
     .card-footer {
       background: var(--white);
       padding: 1rem 1.75rem 0;
@@ -596,6 +675,9 @@
       font-weight: 500;
     }
 
+    /* ========================================
+       TOAST NOTIFICATION
+    ======================================== */
     .toast {
       position: fixed;
       bottom: 2rem;
@@ -620,14 +702,34 @@
       transform: translateX(-50%) translateY(0);
     }
 
+    /* ========================================
+       OUTER CARD FRAME (desktop)
+    ======================================== */
     @media (min-width: 560px) {
-      body { padding: 3rem 1rem; background: var(--ivory); }
-      .page-wrap { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
-      .hero { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+      body {
+        padding: 3rem 1rem;
+        background: var(--ivory);
+      }
+
+      .page-wrap {
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+      }
+
+      .hero {
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
     }
 
+    /* ========================================
+       REDUCED MOTION
+    ======================================== */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; animation: none !important; }
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
     }
   </style>
 </head>
@@ -635,8 +737,10 @@
 
   <div class="page-wrap">
 
+    <!-- ── HERO ── -->
     <header class="hero">
       <div class="hero-top">
+        <!-- Institution badge -->
         <div class="institution-badge">
           <div class="logo-fallback" aria-hidden="true">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -645,6 +749,8 @@
           </div>
           <span class="institution-name">Delhi School of Economics, University of Delhi</span>
         </div>
+
+        <!-- Utility actions -->
         <div class="hero-actions">
           <button class="icon-btn" id="shareBtn" aria-label="Share this card" title="Share">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -662,6 +768,7 @@
         </div>
       </div>
 
+      <!-- Identity block -->
       <div class="hero-identity">
         <div class="hero-info">
           <p class="hero-eyebrow">Faculty Profile</p>
@@ -673,6 +780,8 @@
             Delhi School of Economics
           </p>
         </div>
+
+        <!-- Profile photo -->
         <div class="hero-photo-wrap">
           <img
             src="./photo.png"
@@ -691,6 +800,7 @@
       </div>
     </header>
 
+    <!-- ── SAVE CONTACT ── -->
     <div class="cta-row">
       <a class="btn-save" href="./rksingh.vcf" download aria-label="Save contact to phone">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -702,9 +812,11 @@
       </a>
     </div>
 
+    <!-- ── QUICK ACTIONS ── -->
     <div class="section">
       <p class="section-label">Contact</p>
       <div class="actions-grid">
+
         <a href="tel:+919910970870" class="action-item" aria-label="Call mobile">
           <div class="action-icon ai-phone">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -713,6 +825,7 @@
           </div>
           <span class="action-label">Mobile</span>
         </a>
+
         <a href="mailto:rksingh@commerce.du.ac.in" class="action-item" aria-label="Send email">
           <div class="action-icon ai-email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -722,7 +835,8 @@
           </div>
           <span class="action-label">Email</span>
         </a>
-        <a href="https://commerce.du.ac.in" target="_blank" rel="noopener noreferrer" class="action-item" aria-label="Visit department website">
+
+        <a href="https://rksingh.tech" target="_blank" rel="noopener noreferrer" class="action-item" aria-label="Visit portfolio website">
           <div class="action-icon ai-web">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/>
@@ -730,8 +844,9 @@
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
           </div>
-          <span class="action-label">Website</span>
+          <span class="action-label">Portfolio</span>
         </a>
+
         <a href="https://maps.app.goo.gl/KNjo1kizqS2ciN9d8" target="_blank" rel="noopener noreferrer" class="action-item" aria-label="View location on map">
           <div class="action-icon ai-location">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -741,11 +856,13 @@
           </div>
           <span class="action-label">Location</span>
         </a>
+
       </div>
     </div>
 
     <div class="divider"></div>
 
+    <!-- ── SPECIALISATIONS ── -->
     <div class="section">
       <p class="section-label">Research &amp; Teaching</p>
       <div class="spec-chips">
@@ -761,6 +878,7 @@
 
     <div class="divider"></div>
 
+    <!-- ── ADDRESS ── -->
     <div class="section">
       <p class="section-label">Office Address</p>
       <a href="https://maps.app.goo.gl/KNjo1kizqS2ciN9d8" target="_blank" rel="noopener noreferrer" class="address-block" style="text-decoration:none;">
@@ -781,10 +899,12 @@
 
     <div class="divider"></div>
 
+    <!-- ── SOCIAL / ACADEMIC PROFILES ── -->
     <div class="section">
       <p class="section-label">Online Profiles</p>
       <div class="socials-row">
-        <a href="https://www.linkedin.com/in/rk-singh-du" target="_blank" rel="noopener noreferrer" class="social-btn sb-linkedin" aria-label="LinkedIn Profile">
+
+        <a href="https://www.linkedin.com/in/dr-r-k-singh-b4b4641b" target="_blank" rel="noopener noreferrer" class="social-btn sb-linkedin" aria-label="LinkedIn Profile">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
             <rect x="2" y="9" width="4" height="12"/>
@@ -792,13 +912,15 @@
           </svg>
           LinkedIn
         </a>
-        <a href="https://www.youtube.com/@rkvisen251" target="_blank" rel="noopener noreferrer" class="social-btn sb-youtube" aria-label="YouTube Channel">
+
+        <a href="https://youtube.com/@rksinghdu" target="_blank" rel="noopener noreferrer" class="social-btn sb-youtube" aria-label="YouTube Channel">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
             <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/>
           </svg>
           YouTube
         </a>
+
         <a href="https://scholar.google.com/citations?user=RKSinghDU" target="_blank" rel="noopener noreferrer" class="social-btn sb-scholar" aria-label="Google Scholar">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269z"/>
@@ -806,13 +928,15 @@
           </svg>
           Scholar
         </a>
+
       </div>
     </div>
 
     <div class="divider"></div>
 
+    <!-- ── QR CODE ── -->
     <div class="qr-section" id="qrSection">
-      <p class="section-label" style="padding-top:1.5rem; margin-bottom:0.9rem; padding-left:0; padding-right:0; border-top: 1px solid var(--ivory-dark);">Share This Card</p>
+      <p class="section-label" style="padding-top:1.5rem; border-top: none; margin-bottom:0.9rem; padding-left:0; padding-right:0; border-top: 1px solid var(--ivory-dark);">Share This Card</p>
       <div class="qr-inner">
         <div id="qrcode"></div>
         <div class="qr-text">
@@ -829,19 +953,23 @@
       </div>
     </div>
 
+    <!-- ── FOOTER ── -->
     <footer class="card-footer">
       <p>
         Prof. R. K. Singh &nbsp;·&nbsp;
         <a href="mailto:rksingh@commerce.du.ac.in">rksingh@commerce.du.ac.in</a>
-        &nbsp;·&nbsp; University of Delhi
+        &nbsp;·&nbsp; <a href="https://rksingh.tech" target="_blank" rel="noopener noreferrer">rksingh.tech</a>
       </p>
     </footer>
 
-  </div>
+  </div><!-- /page-wrap -->
 
+  <!-- Toast -->
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
+  <!-- ── SCRIPTS ── -->
   <script>
+    /* ── Toast helper ── */
     function showToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
@@ -849,6 +977,7 @@
       setTimeout(() => t.classList.remove('show'), 2200);
     }
 
+    /* ── QR Code ── */
     const url = window.location.href;
     try {
       new QRCode(document.getElementById('qrcode'), {
@@ -864,34 +993,37 @@
         '<div style="width:80px;height:80px;border-radius:6px;background:#EDE8DF;display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#718096;text-align:center;padding:0.5rem;">QR unavailable</div>';
     }
 
+    /* ── Copy URL ── */
     document.getElementById('copyUrlBtn').addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(url);
-        showToast('\u2713  Link copied to clipboard');
+        showToast('✓  Link copied to clipboard');
       } catch {
         showToast('Copy: ' + url);
       }
     });
 
+    /* ── Share button ── */
     document.getElementById('shareBtn').addEventListener('click', async () => {
       if (navigator.share) {
         try {
           await navigator.share({
-            title: 'Prof. R. K. Singh | Delhi School of Economics',
-            text: 'Professor, Faculty of Commerce & Business, University of Delhi',
+            title: "Prof. R. K. Singh | Delhi School of Economics",
+            text: "Professor, Faculty of Commerce & Business, University of Delhi",
             url: url
           });
-        } catch (e) {}
+        } catch (e) { /* user cancelled */ }
       } else {
         try {
           await navigator.clipboard.writeText(url);
-          showToast('\u2713  Link copied to clipboard');
+          showToast('✓  Link copied to clipboard');
         } catch {
           showToast('Share: ' + url);
         }
       }
     });
 
+    /* ── QR scroll ── */
     document.getElementById('qrBtn').addEventListener('click', () => {
       document.getElementById('qrSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
